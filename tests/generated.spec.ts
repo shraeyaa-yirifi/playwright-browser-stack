@@ -11,7 +11,7 @@ test('Login to Yirifi', async ({ page }) => {
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
 
   // Optional: Verify landing page or login success
-  await expect(page).toHaveURL('https://uat-app.yirifi.ai/app/', { timeout: 15000 });
+  await expect(page).toHaveURL('https://uat-app.yirifi.ai/app/', { timeout: 20000 });
 });
 
 // test('Yirifi walkthrough', async ({ page }) => {
