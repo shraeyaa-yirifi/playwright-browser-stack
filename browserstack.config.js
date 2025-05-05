@@ -49,14 +49,14 @@ module.exports = defineConfig({
         'browserstack.osVersion': 'Ventura',
       },
     },
-    {
-      name: 'Safari@latest:OS X Sonoma',
-      use: {
-        ...caps,
-        browserName: 'webkit',
-        'browserstack.os': 'OS X',
-        'browserstack.osVersion': 'Sonoma',
-      },
-    },
+    // {
+    //   name: 'Safari@latest:OS X Sonoma',
+    //   use: {
+    //     ...caps,
+    //     browserName: 'webkit',
+    //     'browserstack.os': 'OS X',
+    //     'browserstack.osVersion': 'Sonoma',
+    //   },
+    // },
   ],
 });
