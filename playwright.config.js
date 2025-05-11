@@ -5,14 +5,14 @@ module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: true,
   timeout: 60 * 1000,
-  reporter: [
-    ['list'], 
-    ['html', { outputFolder: 'playwright-report' }],
-    ['browserstack', {
-      outputFolder: './playwright-report', // This can be customized if you want to store it elsewhere
-      testObservability: true, // Ensures test observability is turned on
-    }],
-  ],
+//   reporter: [
+//     ['list'], 
+//     ['html', { outputFolder: 'playwright-report' }],
+//     ['browserstack', {
+//       outputFolder: './playwright-report', // This can be customized if you want to store it elsewhere
+//       testObservability: true, // Ensures test observability is turned on
+//     }],
+//   ],
   use: {
     baseURL: 'https://dev-app.yirifi.ai',
     headless: false,
