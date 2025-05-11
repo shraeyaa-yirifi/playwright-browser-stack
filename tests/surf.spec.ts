@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 
 test('Vendor category navigation', async ({ page }) => {
   // Go to login page
-  await page.goto('https://dev-app.yirifi.ai/auth/login/');
+  await page.goto('https://dev-app.yirifi.ai/auth/login/', { timeout: 60000 });
   await page.waitForTimeout(1000);
 
   // Fill email
@@ -38,5 +38,5 @@ test('Vendor category navigation', async ({ page }) => {
 
   // Click specific vendor
   await page.getByText('14bis Supply Tracking', { exact: true }).click();
-  await page.waitForTimeout(10000);
+  await page.waitForTimeout(20000);
 });

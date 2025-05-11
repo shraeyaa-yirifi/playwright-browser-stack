@@ -1,5 +1,8 @@
 import { Page } from '@playwright/test';
 import { expect } from '@playwright/test';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 
 export class LoginPage {
@@ -23,7 +26,6 @@ export class LoginPage {
     }
     await expect(this.page).toHaveURL(/\/app\/?$/, { timeout: 10000 });
 }
-// loginPage.ts
 // loginPage.ts
 async dismissIntroDialog() {
     await this.page.getByRole('button', { name: 'I Understand' }).click({ timeout: 10000 });

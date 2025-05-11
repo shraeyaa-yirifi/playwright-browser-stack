@@ -1,5 +1,8 @@
 import { test, expect, Page } from '@playwright/test';
 import { LoginPage } from '../pages/loginPage'; // Import your LoginPage class
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 // Test data or reusable values
 const categorySearchText = 'aerial';
