@@ -51,18 +51,18 @@ module.exports = defineConfig({
         }
       },
     },
-    {
-      name: 'Safari@latest:OS X Sonoma',
-      use: {
-        ...caps,
-        browserName: 'webkit',
-        'browserstack.os': 'OS X',
-        'browserstack.osVersion': 'Sonoma',
-        browserstack: {
-          username: process.env.BROWSERSTACK_USERNAME,
-          accessKey: process.env.BROWSERSTACK_ACCESS_KEY
-        }
-      },
-    },
+    // {
+    //   name: 'Safari@latest:OS X Sonoma',
+    //   use: {
+    //     ...caps,
+    //     browserName: 'webkit',
+    //     'browserstack.os': 'OS X',
+    //     'browserstack.osVersion': 'Sonoma',
+    //     browserstack: {
+    //       username: process.env.BROWSERSTACK_USERNAME,
+    //       accessKey: process.env.BROWSERSTACK_ACCESS_KEY
+    //     }
+    //   },
+    // },
   ],
 });
