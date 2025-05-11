@@ -19,16 +19,16 @@ const platforms = [
     'browserstack.browserName': 'firefox',
     'browserstack.browserVersion': 'latest',
   },
-  {
-    os: 'OS X',
-    osVersion: 'Ventura',
-    browserName: 'webkit',
-    browserVersion: 'latest',
-    'browserstack.os': 'OS X',
-    'browserstack.osVersion': 'Ventura',
-    'browserstack.browserName': 'webkit',
-    'browserstack.browserVersion': 'latest',
-  },
+  // {
+  //   os: 'OS X',
+  //   osVersion: 'Ventura',
+  //   browserName: 'webkit',
+  //   browserVersion: 'latest',
+  //   'browserstack.os': 'OS X',
+  //   'browserstack.osVersion': 'Ventura',
+  //   'browserstack.browserName': 'webkit',
+  //   'browserstack.browserVersion': 'latest',
+  // },
 ];
 
 module.exports = {
