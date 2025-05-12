@@ -31,6 +31,7 @@ test.describe('Login Test Suite', () => {
     await loginPage.dismissIntroDialog();
 
     // Verify login success by checking URL
-    await expect(page).toHaveURL(/\/app\/?$/, { timeout: 10000 });
+
+    await expect(page).toHaveURL(/\/app\/?$/, { timeout: 8000 });
 });
 });
