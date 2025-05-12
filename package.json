@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --config=playwright.config.js",
-    "test:bs": "npx playwright test --config=browserstack.config.js",
+    "test:bs": "npx browserstack-node-sdk"  ,
     "report": "npx playwright show-report"
   },
   "keywords": [],

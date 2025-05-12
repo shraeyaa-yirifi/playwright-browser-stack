@@ -2,15 +2,18 @@ const { defineConfig } = require('@playwright/test');
 const browserstackConfig = require('./browserstack.config.js');
 
 module.exports = defineConfig({
-  testDir: './tests',
+  testDir: './tests/specs',
+  testMatch: /.*(spec|test)\.(js|ts)/,
+//   reporter: [['html', { open: 'never' }], ['json', { outputFile: 'results.json' }]],
   fullyParallel: true,
   timeout: 60 * 1000,
+  testObservability: true,
 //   reporter: [
 //     ['list'], 
 //     ['html', { outputFolder: 'playwright-report' }],
 //     ['browserstack', {
-//       outputFolder: './playwright-report', // This can be customized if you want to store it elsewhere
-//       testObservability: true, // Ensures test observability is turned on
+//       outputFolder: './playwright-report',
+//       testObservability: true,
 //     }],
 //   ],
   use: {

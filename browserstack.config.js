@@ -19,18 +19,19 @@ const platforms = [
     'browserstack.browserName': 'firefox',
     'browserstack.browserVersion': 'latest',
   },
-  // {
-  //   os: 'OS X',
-  //   osVersion: 'Ventura',
-  //   browserName: 'webkit',
-  //   browserVersion: 'latest',
-  //   'browserstack.os': 'OS X',
-  //   'browserstack.osVersion': 'Ventura',
-  //   'browserstack.browserName': 'webkit',
-  //   'browserstack.browserVersion': 'latest',
-  // },
 ];
-
 module.exports = {
-  platforms,
-};
+    auth: {
+      username: process.env.BROWSERSTACK_USERNAME,
+      access_key: process.env.BROWSERSTACK_ACCESS_KEY
+    },
+    run_settings: {
+      framework: "playwright",
+      framework_config_file: "playwright.config.js",
+      project_name: "Yirifi Project",
+      build_name: "Yirifi-CI-Build-1",
+      test_observability: true,
+    },
+    platforms,
+  };
+  

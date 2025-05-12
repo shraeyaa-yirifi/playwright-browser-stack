@@ -9,13 +9,22 @@ platforms:
     osVersion: Ventura
     browserName: chromium
     browserVersion: latest
+    playwrightConfigOptions:
+      use:
+        trace: 'on'
   - os: OS X
     osVersion: Ventura
     browserName: firefox
     browserVersion: latest
+    playwrightConfigOptions:
+      use:
+        trace: 'on'
   - os: OS X
     osVersion: Ventura
     browserName: edge
     browserVersion: latest
+    playwrightConfigOptions:
+      use:
+        trace: 'on'
 
 playwrightConfig: ./playwright.config.js # or .js depending on your setup
