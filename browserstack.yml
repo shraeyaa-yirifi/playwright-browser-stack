@@ -9,16 +9,17 @@ testObservability: true
 platforms:
   - os: OS X
     osVersion: Ventura
-    browser: 'playwright-chromium'  # Corrected to use Playwright's Chromium
+    browser: 'playwright-chromium'
     browser_version: latest
   - os: OS X
     osVersion: Ventura
-    browser: 'playwright-firefox'  # Corrected to use Playwright's Firefox
+    browser: 'playwright-firefox'
     browser_version: latest
   - os: OS X
     osVersion: Ventura
-    browser: 'playwright-edge'  # Corrected to use Playwright's Edge
+    browser: 'edge'  # ✅ Corrected from 'playwright-edge' to 'edge'
     browser_version: latest
+
 
 
 # Only mention testSuite if tests are NOT managed by Playwright config

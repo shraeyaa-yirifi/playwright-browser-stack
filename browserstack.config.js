@@ -1,25 +1,46 @@
+// const platforms = [
+//   {
+//     os: 'OS X',
+//     osVersion: 'Ventura',
+//     browserName: 'chromium',
+//     browserVersion: 'latest',
+//     'browserstack.os': 'OS X',
+//     'browserstack.osVersion': 'Ventura',
+//     'browserstack.browserName': 'chromium',
+//     'browserstack.browserVersion': 'latest',
+//   },
+//   {
+//     os: 'OS X',
+//     osVersion: 'Ventura',
+//     browserName: 'firefox',
+//     browserVersion: 'latest',
+//     'browserstack.os': 'OS X',
+//     'browserstack.osVersion': 'Ventura',
+//     'browserstack.browserName': 'firefox',
+//     'browserstack.browserVersion': 'latest',
+//   },
+// ];
 const platforms = [
   {
     os: 'OS X',
     osVersion: 'Ventura',
-    browserName: 'chromium',
+    browserName: 'chrome',
     browserVersion: 'latest',
-    'browserstack.os': 'OS X',
-    'browserstack.osVersion': 'Ventura',
-    'browserstack.browserName': 'chromium',
-    'browserstack.browserVersion': 'latest',
   },
   {
     os: 'OS X',
     osVersion: 'Ventura',
     browserName: 'firefox',
     browserVersion: 'latest',
-    'browserstack.os': 'OS X',
-    'browserstack.osVersion': 'Ventura',
-    'browserstack.browserName': 'firefox',
-    'browserstack.browserVersion': 'latest',
+  },
+  {
+    os: 'OS X',
+    osVersion: 'Ventura',
+    browserName: 'edge',
+    browserVersion: 'latest',
   },
 ];
+
 module.exports = {
     auth: {
       username: process.env.BROWSERSTACK_USERNAME,
