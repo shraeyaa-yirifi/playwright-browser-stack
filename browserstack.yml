@@ -1,36 +1,31 @@
 userName: "shreyabhattarai_ifPo34"
 accessKey: "ajWrSLzt5XNdSEtUKi19"
+
 buildName: "Yirifi-CI-Build-1"
 projectName: "playwright-browser-stack"
+
 testObservability: true
 
 platforms:
   - os: OS X
     osVersion: Ventura
-    browserName: chromium
-    browserVersion: latest
-    playwrightConfigOptions:
-      use:
-        trace: 'on'
+    browser: 'playwright-chromium'  # Corrected to use Playwright's Chromium
+    browser_version: latest
   - os: OS X
     osVersion: Ventura
-    browserName: firefox
-    browserVersion: latest
-    playwrightConfigOptions:
-      use:
-        trace: 'on'
+    browser: 'playwright-firefox'  # Corrected to use Playwright's Firefox
+    browser_version: latest
   - os: OS X
     osVersion: Ventura
-    browserName: edge
-    browserVersion: latest
-    playwrightConfigOptions:
-      use:
-        trace: 'on'
+    browser: 'playwright-edge'  # Corrected to use Playwright's Edge
+    browser_version: latest
 
-# Specify the test files you want to run (your test files)
-testSuite:
-  - "tests/specs/login.spec.ts"
-  - "tests/specs/vendorCategory.spec.ts"
 
-# Playwright config file that BrowserStack will use
-playwrightConfig: ./playwright.config.js
+# Only mention testSuite if tests are NOT managed by Playwright config
+# Better to let playwright.config.js handle test discovery
+# So this can be removed unless you need to run specific test files
+# testSuite:
+#   - "tests/specs/login.spec.ts"
+#   - "tests/specs/vendorCategory.spec.ts"
+
+playwrightConfig: "./playwright.config.js"

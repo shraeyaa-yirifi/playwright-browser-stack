@@ -26,6 +26,9 @@ jobs:
 
       - name: Install Playwright browsers
         run: npx playwright install
+        
+      - name: Install BrowserStack SDK
+        run: npm install -g browserstack-node-sdk
 
       - name: Run tests with BrowserStack
         run: npm run test:bs
