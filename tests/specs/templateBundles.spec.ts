@@ -26,8 +26,9 @@ test.describe('Template and Bundle Download Flow', () => {
     const downloadPromise = page.waitForEvent('download');
     await page.getByText('PDF').click();
     const download = await downloadPromise;
-    console.log(`Template downloaded to: ${await download.path()}`);
-
+    await download.saveAs(`downloads/${await download.suggestedFilename()}`);
+    console.log(`Template downloaded as: ${await download.suggestedFilename()}`);
+    
     // Close the overlay if any
     const overlay = page.locator('.MuiBackdrop-root');
     if (await overlay.isVisible({ timeout: 3000 })) {
