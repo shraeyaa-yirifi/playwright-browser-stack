@@ -1,10 +1,8 @@
 import { test, expect, Page } from '@playwright/test';
-import { LoginPage } from '../pages/loginPage'; // Import your LoginPage class
+import { LoginPage } from '../pages/loginPage';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
-// Test data or reusable values
 const categorySearchText = 'aerial';
 const vendorName = '14bis Supply Tracking';
 
@@ -12,51 +10,58 @@ test.describe('Vendor Category Navigation', () => {
   let page: Page;
   let loginPage: LoginPage;
 
-  // Login before each test
   test.beforeEach(async ({ browser }) => {
     page = await browser.newPage();
     loginPage = new LoginPage(page);
-    
-    // Go to login page and login
+
     const email = process.env.TEST_EMAIL!;
     const password = process.env.TEST_PASSWORD!;
-    
+
     await loginPage.goto();
     await loginPage.login(email, password);
     await loginPage.dismissIntroDialog();
+
+    // Ensure app has loaded
+    await expect(page).toHaveURL(/\/app/, { timeout: 10000 });
   });
 
-  // Actual test for browsing vendors
   test('should browse and view vendor category', async () => {
-    // Wait for "Browse Market Place" to be visible before clicking
-    await page.getByRole('button', { name: 'Browse Market Place' }).click({ timeout: 10000 });
+    // Wait for "Browse Market Place" and click it
+    const browseMarketplaceBtn = page.getByRole('button', { name: 'Browse Market Place' });
+    await expect(browseMarketplaceBtn).toBeVisible({ timeout: 10000 });
+    await browseMarketplaceBtn.click();
 
-    // Browse Vendors → View All Categories
-    await page.getByRole('link', { name: 'Browse Vendors' }).click();
-    await page.waitForTimeout(5000);
-    await page.getByRole('link', { name: 'View All Categories' }).click();
-    await page.waitForTimeout(1000);
+    // Click 'All Vendors' inside USERS label
+    const allVendorsLink = page.getByLabel('USERS').getByRole('link', { name: 'All Vendors' });
+    await expect(allVendorsLink).toBeVisible({ timeout: 10000 });
+    await allVendorsLink.click();
 
-    // Search and click a specific category
-    await page.getByRole('textbox', { name: 'Search categories...' }).fill(categorySearchText);
-    await page.waitForTimeout(1000);
-    await page.getByRole('heading', { name: 'Aerial Transportation' }).click();
-    await page.waitForTimeout(1000);
+    // View All Categories
+    const viewAllCategories = page.getByRole('link', { name: 'View All Categories' });
+    await expect(viewAllCategories).toBeVisible({ timeout: 10000 });
+    await viewAllCategories.click();
 
-    // Click specific vendor
-    await page.getByText(vendorName, { exact: true }).click();
-    await page.waitForTimeout(5000);
-    
-    // Use the vendorName to click on the vendor
-    // await page.getByText(vendorName, { exact: true }).click();
+    // Search category
+    const searchBox = page.getByRole('textbox', { name: 'Search categories...' });
+    await expect(searchBox).toBeVisible({ timeout: 10000 });
+    await searchBox.fill(categorySearchText);
+    await searchBox.press('Enter');
 
-    // Now assert on the heading containing the vendor name
-    //await expect(page.getByRole('heading', { level: 4, name: vendorName })).toBeVisible();
+    // Click on "Aerial Transportation"
+    const aerialCategory = page.getByRole('heading', { name: 'Aerial Transportation' });
+    await expect(aerialCategory).toBeVisible({ timeout: 10000 });
+    await aerialCategory.click();
 
+    // Click on the specific vendor
+    const vendorCard = page.getByText(vendorName, { exact: true });
+    await expect(vendorCard).toBeVisible({ timeout: 10000 });
+    await vendorCard.click();
 
-    });
+    // Confirm vendor details are visible
+    const correctHeading = page.locator('#overview').getByRole('heading', { name: vendorName });
+    await expect(correctHeading).toBeVisible({ timeout: 10000 });
+      });
 
-  // Clean up after the test
   test.afterEach(async () => {
     await page.close();
   });

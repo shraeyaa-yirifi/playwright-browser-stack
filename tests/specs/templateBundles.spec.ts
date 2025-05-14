@@ -14,7 +14,7 @@ test.describe('Template and Bundle Download Flow', () => {
     await loginPage.goto();
     await loginPage.login(email, password);
     await loginPage.dismissIntroDialog();
-
+    await page.getByRole('button', { name: 'Accept' }).click();
     // Navigate to All Templates
     await page.getByRole('link', { name: 'All Templates' }).click({ timeout: 10000 });
 
